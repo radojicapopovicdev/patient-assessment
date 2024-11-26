@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  postgresql:
+    image: bitnami/postgresql
+    container_name: patient-assessment-postgresql
+    restart: always
+    ports:
+      - "5433:5433"
+    environment:
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_PASSWORD=postgresPW123
+      - POSTGRESQL_DATABASE=patient-assessment
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+
+volumes:
+  postgresql_data:
+    driver: local
