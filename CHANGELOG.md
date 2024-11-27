@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.8] - 2024-11-27
+
+### Added
+
+- Implemented new home page design in page.tsx
+- Enhanced sidebar navigation functionality
+
+### Changed
+
+- Applied consistent formatting across the application
+- Improved sidebar navigation structure and styling
+
+### Removed
+
+- Unused navigation components:
+  - team-switcher.tsx
+  - nav-user.tsx
+  - nav-projects.tsx
+  - nav-main.tsx
+
+### Fixed
+
+- Corrected breadcrumb navigation links
+
 ## [0.0.7] - 2024-11-27
 
 ### Added
