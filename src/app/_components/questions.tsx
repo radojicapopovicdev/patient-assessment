@@ -1,7 +1,7 @@
 'use client'
 
 import { Loader2 } from 'lucide-react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 import { Button } from '~/components/ui/button'
 import { Progress } from '~/components/ui/progress'
@@ -61,7 +61,12 @@ export function Questions() {
   const [score, setScore] = useState(0)
 
   const { mutateAsync, isPending } = trpc.assessment.create.useMutation()
+
+  const searchParams = useSearchParams()
   const router = useRouter()
+
+  const patient = searchParams.get('patient')
+  const type = searchParams.get('type')
 
   function handleChose(level: number) {
     setQuestion((q) => {
@@ -74,8 +79,8 @@ export function Questions() {
 
   async function handleCreate() {
     await mutateAsync({
-      type: 'Cognitive status',
-      patientName: 'Oswald Becker',
+      type: type!,
+      patientName: patient!,
       date: new Date(),
       finalScore: score * questions.length,
       questions: [],

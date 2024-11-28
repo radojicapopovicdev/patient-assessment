@@ -5,11 +5,9 @@ import {
   CardHeader,
   CardTitle,
 } from '~/components/ui/card'
-import { auth } from '~/server/auth'
 import { trpc } from '~/trpc/server'
 
 export async function LatestAssessments() {
-  const session = await auth()
   const assessments = await trpc.assessment.listThreeLatest()
 
   return (
